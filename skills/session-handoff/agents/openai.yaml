@@ -1,0 +1,4 @@
+interface:
+  display_name: "Session Handoff"
+  short_description: "Choose handoffs, prompts, lessons and plan updates"
+  default_prompt: "Use $session-handoff to review this session and recommend which continuation artifacts to preserve."
