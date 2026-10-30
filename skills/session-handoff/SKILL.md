@@ -1,6 +1,6 @@
 ---
 name: session-handoff
-description: Preserve session decisions, verified progress and next steps in selected handoff documents, kickoff prompts, durable lessons or plan updates. Use for 세션 정리, 인수인계, clear 전에 정리, session wrap or preparing a fresh session. 
+description: Preserve session decisions, verified progress and next steps in selected handoff documents, kickoff prompts, durable lessons or plan updates. Use for 세션 정리, 인수인계, clear 전에 정리, session wrap or preparing a fresh session.
 ---
 
 # Session Handoff
