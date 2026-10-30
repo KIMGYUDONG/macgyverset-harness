@@ -30,4 +30,7 @@
 - session-handoff: writer/loader 기존 검사 26개 통과. 자동 hook 설치나 네이티브 새 세션 자동 로딩 성공을 주장하지 않는다.
 - 독립 문서 검토에서 발견한 인계 스킬의 clipboard 예시 충돌을 수정했다.
 
+- 공개 검증: GitHub visibility PUBLIC 확인. credential helper와 HTTP 인증 헤더를 비운 새 clone에서 참조 검사, 실제 8개 스킬 설치, 8개 unchanged 재실행과 기존 AGENTS.md 보존을 확인했다.
+- 검토 결과: 공식 다운로더와 변경된 인계 지침의 독립 검토에서 추가 고우선 결함이 발견되지 않았다.
+
 실제 시험 환경과 그 Codex 버전은 이 저장소 제작 환경에서 검증한 것으로 간주하지 않는다.
