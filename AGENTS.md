@@ -1,9 +1,9 @@
-# Harness kit development
+# MacGyverSet Harness development
 
-This repository builds a portable instruction kit, not an exam answer. START.md is the consumer entry point. Its exam restrictions apply to consuming the kit during an exam; publishing this repository is separately authorized maintenance.
+Apply this file when modifying this harness repository. When using the harness for an actual task, explicitly read START.md from the task workspace. A clone in a child directory does not automatically apply this file to the parent task.
 
-- Keep all runtime content self-contained and paths relative. Never include personal logs, credentials, private provenance or database connections.
-- Preserve the consumer's existing instructions, configuration, permissions and files. The optional preparer writes only new kit skill directories beneath the explicitly selected workspace.
-- Use Python standard library for preparation and tests. Run `python3 -m unittest discover -s tests -v` and `python3 scripts/check.py` before publishing.
-- Store implementation and validation evidence in docs/plans. Keep actual exam data out of this repository.
-- Consumer reporting and task-based model/effort routing are defined in knowledge/reporting-and-routing.md. Keep START.md linked to them. Official upstream skills are fetched from the pinned lock, not rewritten or auto-registered.
+- Publishing and distribution follow the execution environment policy and explicit authorization. This file grants neither.
+- Keep consumer files self-contained, paths relative, and private data out of this repository.
+- Preserve the task workspace instructions, configuration, permissions and existing files. START.md performs scoped skill registration through scripts/prepare.py when the user requests installation or application.
+- Run Python stdlib tests and scripts/check.py before publishing. Behavioral scenarios are recorded under evals and validation evidence under docs/plans.
+- Keep reporting, verification and role guidance in their existing referenced files. Avoid duplicating them here.

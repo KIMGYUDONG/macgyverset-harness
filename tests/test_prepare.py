@@ -56,15 +56,20 @@ class PrepareTests(unittest.TestCase):
         self.assertEqual(result["unchanged"], ["kit-alpha", "kit-zeta"])
         self.assertEqual(before, self.snapshot(self.workspace))
 
-    def test_named_handoff_is_included_and_other_directories_are_ignored(self):
-        for name in ("session-handoff", "unrelated-skill"):
+    def test_named_entries_and_kit_skills_are_included_but_unrelated_dirs_are_ignored(self):
+        for name in ("macgyverset-harness", "session-handoff", "unrelated-skill"):
             skill = self.skills / name
             skill.mkdir()
             (skill / "SKILL.md").write_text(name)
         result = module.prepare(self.source, self.workspace)
-        self.assertEqual(result["installed"], ["kit-alpha", "kit-zeta", "session-handoff"])
+        self.assertEqual(result["installed"],
+                         ["kit-alpha", "kit-zeta", "macgyverset-harness", "session-handoff"])
+        self.assertTrue((self.targets / "macgyverset-harness/SKILL.md").is_file())
         self.assertTrue((self.targets / "session-handoff/SKILL.md").is_file())
         self.assertFalse((self.targets / "unrelated-skill").exists())
+        repeated = module.prepare(self.source, self.workspace)
+        self.assertEqual(repeated["installed"], [])
+        self.assertEqual(repeated["unchanged"], result["installed"])
 
     def test_collision_preflight_prevents_any_new_skill(self):
         target = self.targets / "kit-zeta"

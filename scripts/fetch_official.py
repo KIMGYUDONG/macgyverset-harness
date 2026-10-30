@@ -113,7 +113,7 @@ def fetch(output, lock_path=None):
     for entry in entries:
         if entry["path"] not in expected_installed:
             continue
-        request = Request(BASE_URL + entry["path"], headers={"User-Agent": "harness-kit-official-fetch/1"})
+        request = Request(BASE_URL + entry["path"], headers={"User-Agent": "macgyverset-harness-official-fetch/1"})
         with urlopen(request, timeout=TIMEOUT_SECONDS) as response:
             payload = response.read(entry["size"] + 1)
         if not _matches(payload, entry):

@@ -1,4 +1,4 @@
-# Harness Kit
+# MacGyverSet Harness (맥가이버셋 하네스)
 
 평소 사용하는 요구사항 정리, TDD, 역할 위임과 검증 습관을 제공된 Codex에 가져가는 작은 공개 키트입니다. 정답 코드나 앱 완성본은 포함하지 않습니다. Python 패키지 설치, Docker, MCP, 개인 API 키가 필요하지 않습니다. 공식 스킬은 고정한 원출처에서 내려받고, 개인 session-handoff는 지원 파일과 함께 포함합니다.
 
@@ -7,35 +7,35 @@
 과제의 작업 공간 루트에서 실행합니다. 처음에는 pull 대신 clone을 사용합니다.
 
 ```sh
-git clone --depth 1 --branch v0.1.0 https://github.com/KIMGYUDONG/harness-kit.git harness-kit
+git clone --depth 1 --branch v0.2.0 https://github.com/KIMGYUDONG/macgyverset-harness.git macgyverset-harness
 ```
 
-공식 스킬은 공개 원출처에서 내려받습니다(Python 3.9 이상).
-
-```sh
-python3 harness-kit/scripts/fetch_official.py --output harness-official
-```
-
-제공된 Codex를 실행하고 아래 요청을 입력합니다.
+제공된 Codex에 다음 한 번만 요청합니다. START.md가 작업 공간 안의 스킬 등록과 지침 적용까지 이어갑니다.
 
 ```text
-harness-kit/START.md를 읽고 이 과제에 적용해 줘.
-먼저 작업 공간의 과제 안내와 README, 적용되는 지침을 확인하고,
-성공 기준과 첫 작업을 정리한 뒤 허용된 범위에서 구현과 검증을 진행해 줘.
+macgyverset-harness/START.md를 읽고 맥가이버셋 하네스를 설치한 뒤 이 과제에 적용해 줘.
 ```
 
-START.md가 공통 개발 원칙을 읽히고 필요한 스킬만 선택합니다. clone만으로도 이 직접 읽기 방식을 사용할 수 있습니다. 새 스킬을 자동 발견하지 않는 Codex 버전에서도 같은 파일을 직접 읽습니다.
+처음 접하는 에이전트에는 주소를 포함하면 저장소를 확실히 식별할 수 있습니다.
 
-## 선택: 스킬 목록에 등록
+```text
+https://github.com/KIMGYUDONG/macgyverset-harness 의 맥가이버셋 하네스를 설치해 줘.
+실제 과제 루트에서 clone의 START.md를 읽고 작업 공간 스킬 등록까지 진행해 줘.
+```
 
-Python 3.9 이상이 있는 환경에서, 과제 루트에 있는 상태로 실행합니다.
+등록 뒤에는 “맥가이버셋 하네스 설치해줘” 또는 “맥가이버셋 하네스 적용해줘”로 요청할 수 있습니다. Git clone 자체는 스크립트를 실행하지 않습니다. 이름만 처음 제시했을 때 새 에이전트가 저장소를 알아낸다고 보장하지 않습니다.
+
+## 터미널에서 한 번에 준비
+
+과제 루트에서 clone 다음 명령을 실행하면 파일 등록까지 끝납니다(Python 3.9 이상).
 
 ```sh
-python3 harness-kit/scripts/prepare.py --workspace "$PWD" --dry-run
-python3 harness-kit/scripts/prepare.py --workspace "$PWD"
+python3 macgyverset-harness/scripts/prepare.py --workspace "$PWD"
 ```
 
-작업 공간의 `.agents/skills/kit-*`와 `session-handoff`만 복사합니다. session-handoff 실행은 Python 3.10 이상이 필요합니다. 다른 내용이 이미 있거나 경로에 symlink가 있으면 중단합니다. 기존 AGENTS.md와 Codex 설정을 바꾸지 않습니다. 등록이 제한되면 START.md 직접 읽기를 사용하고 차단을 우회하지 않습니다.
+기존 AGENTS.md와 Codex 설정은 바꾸지 않습니다. 파일 배치와 현재 세션의 스킬 목록 갱신은 별개입니다. 목록에 바로 나타나지 않아도 START.md의 링크로 직접 읽어 사용합니다. 공식 스킬은 START.md에 따라 원출처에서 필요한 때 내려받습니다. session-handoff 실행은 Python 3.10 이상입니다.
+
+이미 v0.1.0을 harness-kit 폴더에 받은 경우, 새 버전은 별도 macgyverset-harness 폴더에 위 명령으로 clone하면 됩니다. 이전 폴더나 과제 파일을 지우거나 덮어쓸 필요가 없습니다.
 
 ## 구성
 
@@ -50,7 +50,7 @@ python3 harness-kit/scripts/prepare.py --workspace "$PWD"
 
 ## 세션 인계 사용
 
-과제풀이 중 맥락 정리가 필요하면 `harness-kit/skills/session-handoff/SKILL.md를 읽고 인계 문서와 시작 프롬프트를 만들어 줘`라고 요청합니다. 작성 결과는 작업 공간의 docs/handoff에 남습니다. writer/loader와 기존 회귀 테스트를 함께 포함하지만, 자동 로딩 hook은 설치하지 않습니다. 시험 중에는 클립보드와 전역 메모리를 변경하지 않습니다.
+과제풀이 중 맥락 정리가 필요하면 `macgyverset-harness/skills/session-handoff/SKILL.md를 읽고 인계 문서와 시작 프롬프트를 만들어 줘`라고 요청합니다. 작성 결과는 작업 공간의 docs/handoff에 남습니다. writer/loader와 기존 회귀 테스트를 함께 포함하지만, 자동 로딩 hook은 설치하지 않습니다. 시험 중에는 클립보드와 전역 메모리를 변경하지 않습니다.
 
 ## 사용 경계
 

@@ -10,7 +10,7 @@
 
 ```bash
 cd examroot
-python3 harness-kit/scripts/fetch_official.py --output harness-official
+python3 macgyverset-harness/scripts/fetch_official.py --output harness-official
 ```
 
 위 명령은 `examroot/harness-kit`에 이 저장소를 받은 배치입니다. 출력 폴더는 새로 만들거나 기존 디렉터리를 사용할 수 있으며, 부모 디렉터리는 존재해야 합니다. 다른 위치에서 실행한다면 `--output`에 원하는 실제 응시 작업 폴더의 `harness-official` 경로를 지정합니다. 상대 경로는 현재 작업 폴더 기준입니다.

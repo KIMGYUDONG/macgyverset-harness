@@ -49,7 +49,8 @@ def prepare(source, workspace, dry_run=False):
     if not source_skills.is_dir():
         raise ValueError(f"Missing source skills directory: {source_skills}")
     sources = sorted(path for path in source_skills.iterdir()
-                     if path.name.startswith("kit-") or path.name == "session-handoff")
+                     if path.name.startswith("kit-")
+                     or path.name in {"session-handoff", "macgyverset-harness"})
     if not sources:
         raise ValueError("No kit skills found")
 
