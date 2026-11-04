@@ -7,7 +7,7 @@
 과제의 작업 공간 루트에서 실행합니다. 처음에는 pull 대신 clone을 사용합니다.
 
 ```sh
-git clone --depth 1 --branch v0.3.0 https://github.com/KIMGYUDONG/macgyverset-harness.git macgyverset-harness
+git clone --depth 1 --branch v0.3.1 https://github.com/KIMGYUDONG/macgyverset-harness.git macgyverset-harness
 ```
 
 제공된 Codex에 다음 한 번만 요청합니다. START.md가 작업 공간 안의 스킬 등록과 지침 적용까지 이어갑니다.

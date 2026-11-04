@@ -21,16 +21,16 @@ description: "맥가이버셋 하네스를 현재 작업 공간에 설치하고 
 
 ## 원본이 없을 때만 새로 받기
 
-유효한 원본이 없다면 제공 환경에서 허용된 터미널의 git으로 공개 저장소 v0.3.0 태그를 새 `macgyverset-harness` 하위 디렉터리에 받는다. 목적지가 이미 있으면 덮어쓰거나 삭제하지 않고 그 충돌을 보고한다. 별도 AI CLI, 사설 API, 개인 설정과 자격 증명은 연결하지 않는다.
+유효한 원본이 없다면 제공 환경에서 허용된 터미널의 git으로 공개 저장소 v0.3.1 태그를 새 `macgyverset-harness` 하위 디렉터리에 받는다. 목적지가 이미 있으면 덮어쓰거나 삭제하지 않고 그 충돌을 보고한다. 별도 AI CLI, 사설 API, 개인 설정과 자격 증명은 연결하지 않는다.
 
 아래 `task_workspace`는 앞에서 확인한 실제 작업 루트로 설정한다.
 
 ```bash
-git clone --depth 1 --branch v0.3.0 https://github.com/KIMGYUDONG/macgyverset-harness.git "$task_workspace/macgyverset-harness"
+git clone --depth 1 --branch v0.3.1 https://github.com/KIMGYUDONG/macgyverset-harness.git "$task_workspace/macgyverset-harness"
 git -C "$task_workspace/macgyverset-harness" describe --tags --exact-match
 ```
 
-새로 받은 디렉터리의 START.md와 official-skills.lock.json, `git describe --tags --exact-match` 결과가 v0.3.0인지 확인한다. 태그가 없거나 다운로드가 차단되면 다른 버전이나 비공개 경로로 우회하지 않고 실패를 보고한다. 이미 찾은 기존 원본을 업데이트하기 위해 이 clone 단계를 실행하지 않는다.
+새로 받은 디렉터리의 START.md와 official-skills.lock.json, `git describe --tags --exact-match` 결과가 v0.3.1인지 확인한다. 태그가 없거나 다운로드가 차단되면 다른 버전이나 비공개 경로로 우회하지 않고 실패를 보고한다. 이미 찾은 기존 원본을 업데이트하기 위해 이 clone 단계를 실행하지 않는다.
 
 ## START.md에 따라 적용
 
