@@ -49,7 +49,7 @@ class FetchOfficialTests(unittest.TestCase):
 
     def test_fetches_original_bytes_and_is_idempotent(self):
         result = self.run_fetch()
-        self.assertEqual(len(result["installed"]), 11)
+        self.assertEqual(len(result["installed"]), 22)
         for relative, payload in self.payloads.items():
             self.assertEqual((self.output / relative).read_bytes(), payload)
         unrelated = self.output / "existing.txt"
@@ -57,7 +57,7 @@ class FetchOfficialTests(unittest.TestCase):
         with mock.patch.object(module, "urlopen", side_effect=AssertionError("cache must stay offline")):
             result = module.fetch(self.output, self.lock)
         self.assertEqual(result["installed"], [])
-        self.assertEqual(len(result["unchanged"]), 11)
+        self.assertEqual(len(result["unchanged"]), 22)
         self.assertEqual(unrelated.read_text(), "keep")
         self.assertFalse((self.output.parent / ".agents").exists())
 
@@ -68,7 +68,7 @@ class FetchOfficialTests(unittest.TestCase):
         with mock.patch.object(module, "urlopen", side_effect=self.response) as download:
             result = module.fetch(self.output, self.lock)
         self.assertEqual(result["installed"], [relative])
-        self.assertEqual(len(result["unchanged"]), 10)
+        self.assertEqual(len(result["unchanged"]), 21)
         self.assertEqual(download.call_count, 1)
 
     def test_hash_mismatch_leaves_output_absent(self):

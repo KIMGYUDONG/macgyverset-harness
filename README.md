@@ -7,7 +7,7 @@
 과제의 작업 공간 루트에서 실행합니다. 처음에는 pull 대신 clone을 사용합니다.
 
 ```sh
-git clone --depth 1 --branch v0.2.0 https://github.com/KIMGYUDONG/macgyverset-harness.git macgyverset-harness
+git clone --depth 1 --branch v0.3.0 https://github.com/KIMGYUDONG/macgyverset-harness.git macgyverset-harness
 ```
 
 제공된 Codex에 다음 한 번만 요청합니다. START.md가 작업 공간 안의 스킬 등록과 지침 적용까지 이어갑니다.
@@ -24,6 +24,14 @@ https://github.com/KIMGYUDONG/macgyverset-harness 의 맥가이버셋 하네스�
 ```
 
 등록 뒤에는 “맥가이버셋 하네스 설치해줘” 또는 “맥가이버셋 하네스 적용해줘”로 요청할 수 있습니다. Git clone 자체는 스크립트를 실행하지 않습니다. 이름만 처음 제시했을 때 새 에이전트가 저장소를 알아낸다고 보장하지 않습니다.
+
+## 여러 창으로 풀기
+
+1. 터미널 1에서 위 clone과 설치 요청을 마친다.
+2. 터미널 2~5를 열고 각각 `codex`를 실행한 뒤 [창 카드](cards/README.md)의 진입문 한 줄을 붙여넣는다.
+3. 창 1이 만든 담당자 질문을 오른쪽 담당자 에이전트에 직접 전달하고, 답을 `docs/board/lead.md`에 붙여넣는다.
+
+창끼리는 `docs/board/`의 파일로만 소통한다. 단계와 완료 조건은 [작업 단계](knowledge/workflow.md)에 있다.
 
 ## 터미널에서 한 번에 준비
 
@@ -66,4 +74,4 @@ python3 scripts/check.py
 python3 -m unittest discover -s skills/session-handoff/tests -v
 ```
 
-7개 kit 스킬은 이 저장소를 위해 새로 작성했습니다. session-handoff는 기존 개인 스킬에서 개인 경로와 시험 적용 경계만 조정한 이식본입니다. 공식 스킬은 이 저장소에서 재작성하지 않고 원출처에서 내려받습니다. 개인 워크플로의 책임을 추려 재구성했으며, 플러그인 전용 원문, 유료 도구, 개인 기록을 배포하지 않습니다. 형식 참고: [Codex skills](https://learn.chatgpt.com/docs/build-skills), [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+12개 kit 스킬은 이 저장소를 위해 새로 작성했습니다. session-handoff는 기존 개인 스킬에서 개인 경로와 시험 적용 경계만 조정한 이식본입니다. 공식 스킬은 이 저장소에서 재작성하지 않고 원출처에서 내려받습니다. 개인 워크플로의 책임을 추려 재구성했으며, 플러그인 전용 원문, 유료 도구, 개인 기록을 배포하지 않습니다. 형식 참고: [Codex skills](https://learn.chatgpt.com/docs/build-skills), [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents).

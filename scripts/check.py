@@ -8,11 +8,12 @@ from pathlib import Path
 def main():
     root = Path(__file__).resolve().parents[1]
     errors = []
-    expected = {f"kit-{name}" for name in ("plan", "code", "tdd", "verify", "finish", "write", "files")}
+    expected = {f"kit-{name}" for name in ("plan", "code", "tdd", "verify", "finish", "write", "files",
+                                                    "define", "data", "debug", "test", "manual")}
     expected.update({"session-handoff", "macgyverset-harness"})
     skills = list((root / "skills").glob("*/SKILL.md"))
     if {p.parent.name for p in skills} != expected:
-        errors.append("Expected seven kit skills, session-handoff and macgyverset-harness")
+        errors.append("Expected twelve kit skills, session-handoff and macgyverset-harness")
     for path in sorted(root.rglob("*")):
         if any(part in {".git", "__pycache__"} for part in path.relative_to(root).parts):
             continue
